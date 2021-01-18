@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.Models", "Altkom.Orange.Models\Altkom.Orange.Models.csproj", "{24B7C4A9-BDCC-4C79-ABDB-E14C13679621}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.IServices", "Altkom.Orange.IServices\Altkom.Orange.IServices.csproj", "{8B5AE08E-FB55-486A-8162-A0255E84A721}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24B7C4A9-BDCC-4C79-ABDB-E14C13679621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B7C4A9-BDCC-4C79-ABDB-E14C13679621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B7C4A9-BDCC-4C79-ABDB-E14C13679621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B7C4A9-BDCC-4C79-ABDB-E14C13679621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5AE08E-FB55-486A-8162-A0255E84A721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5AE08E-FB55-486A-8162-A0255E84A721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5AE08E-FB55-486A-8162-A0255E84A721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5AE08E-FB55-486A-8162-A0255E84A721}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7122B3D-B5B9-4B4F-AB0C-2788581B6225}
+	EndGlobalSection
+EndGlobal
