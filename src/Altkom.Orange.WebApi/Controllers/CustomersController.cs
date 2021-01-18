@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Altkom.Orange.WebApi.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
     public class CustomersController : ControllerBase
     {
@@ -48,13 +49,24 @@ namespace Altkom.Orange.WebApi.Controllers
         }
 
         // GET api/customers?FirstName=Neil&LastName=Effertz
-
         [HttpGet]
-        public IActionResult Get(CustomerSearchCriteria searchCriteria)
+        public IActionResult Get([FromQuery] CustomerSearchCriteria searchCriteria)
         {
             var customers = customerService.Get(searchCriteria);
 
             return Ok(customers);
         }
+
+        // GET api/customers/female
+        [HttpGet("female")]
+        public IActionResult GetFemales()
+        {
+            CustomerSearchCriteria searchCriteria = new CustomerSearchCriteria { Gender = Models.Gender.Female };
+
+            var customers = customerService.Get(searchCriteria);
+
+            return Ok(customers);
+        }
+
     }
 }

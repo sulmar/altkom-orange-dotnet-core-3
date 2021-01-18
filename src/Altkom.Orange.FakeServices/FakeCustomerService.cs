@@ -61,6 +61,11 @@ namespace Altkom.Orange.FakeServices
                 query = query.Where(c => c.Birthday <= searchCriteria.To);
             }
 
+            if (searchCriteria.Gender.HasValue)
+            {
+                query = query.Where(c => c.Gender == searchCriteria.Gender);
+            }
+
             return query.ToList();
         }
 
