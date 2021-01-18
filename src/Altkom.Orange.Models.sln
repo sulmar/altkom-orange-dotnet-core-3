@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.FakeServices"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.Fakers", "Altkom.Orange.Fakers\Altkom.Orange.Fakers.csproj", "{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.WebApi", "Altkom.Orange.WebApi\Altkom.Orange.WebApi.csproj", "{B3C2B427-5A12-40CB-B0D5-027638A42B52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C2B427-5A12-40CB-B0D5-027638A42B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C2B427-5A12-40CB-B0D5-027638A42B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C2B427-5A12-40CB-B0D5-027638A42B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C2B427-5A12-40CB-B0D5-027638A42B52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

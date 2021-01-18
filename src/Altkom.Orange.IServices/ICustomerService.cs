@@ -5,5 +5,6 @@ namespace Altkom.Orange.IServices
 {
     public interface ICustomerService : IEntityService<Customer>
     {
+        Customer Get(string pesel);
     }
 }

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="32.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Altkom.Orange.IServices\Altkom.Orange.IServices.csproj" />
     <ProjectReference Include="..\Altkom.Orange.Models\Altkom.Orange.Models.csproj" />
   </ItemGroup>

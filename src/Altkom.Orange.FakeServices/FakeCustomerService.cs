@@ -1,5 +1,6 @@
 ﻿using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
+using Bogus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace Altkom.Orange.FakeServices
     {
         private readonly ICollection<Customer> customers;
 
-        public FakeCustomerService()
+        public FakeCustomerService(Faker<Customer> faker)
         {
-
+            customers = faker.Generate(100);
         }
 
         public void Add(Customer entity)
@@ -28,6 +29,11 @@ namespace Altkom.Orange.FakeServices
         public Customer Get(int id)
         {
             return customers.SingleOrDefault(c => c.Id == id);
+        }
+
+        public Customer Get(string pesel)
+        {
+            return customers.SingleOrDefault(c => c.Pesel == pesel);
         }
 
         public void Remove(int id)
