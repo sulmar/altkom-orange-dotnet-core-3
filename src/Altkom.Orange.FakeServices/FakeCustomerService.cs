@@ -1,5 +1,6 @@
 ﻿using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
+using Altkom.Orange.Models.SearchCriterias;
 using Bogus;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,33 @@ namespace Altkom.Orange.FakeServices
         public Customer Get(string pesel)
         {
             return customers.SingleOrDefault(c => c.Pesel == pesel);
+        }
+
+        public IEnumerable<Customer> Get(CustomerSearchCriteria searchCriteria)
+        {
+            IQueryable<Customer> query = customers.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchCriteria.FirstName))
+            {
+                query = query.Where(c => c.FirstName.Contains(searchCriteria.FirstName));
+            }
+
+            if (!string.IsNullOrEmpty(searchCriteria.LastName))
+            {
+                query = query.Where(c => c.FirstName.Contains(searchCriteria.LastName));
+            }
+
+            if (searchCriteria.From.HasValue)
+            {
+                query = query.Where(c => c.Birthday >= searchCriteria.From);
+            }
+
+            if (searchCriteria.To.HasValue)
+            {
+                query = query.Where(c => c.Birthday <= searchCriteria.To);
+            }
+
+            return query.ToList();
         }
 
         public void Remove(int id)

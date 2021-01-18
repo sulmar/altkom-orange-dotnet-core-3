@@ -1,4 +1,5 @@
 ﻿using Altkom.Orange.IServices;
+using Altkom.Orange.Models.SearchCriterias;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,13 +19,13 @@ namespace Altkom.Orange.WebApi.Controllers
         }
 
         // GET api/customers
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var customers = customerService.Get();
+        //[HttpGet]
+        //public IActionResult Get()
+        //{
+        //    var customers = customerService.Get();
 
-            return Ok(customers);
-        }
+        //    return Ok(customers);
+        //}
 
 
         // bool IRouteConstraint.Match()
@@ -44,6 +45,16 @@ namespace Altkom.Orange.WebApi.Controllers
             var customer = customerService.Get(pesel);
 
             return Ok(customer);
+        }
+
+        // GET api/customers?FirstName=Neil&LastName=Effertz
+
+        [HttpGet]
+        public IActionResult Get(CustomerSearchCriteria searchCriteria)
+        {
+            var customers = customerService.Get(searchCriteria);
+
+            return Ok(customers);
         }
     }
 }
