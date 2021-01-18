@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.Models", "Altkom.Orange.Models\Altkom.Orange.Models.csproj", "{24B7C4A9-BDCC-4C79-ABDB-E14C13679621}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.Models", "Altkom.Orange.Models\Altkom.Orange.Models.csproj", "{24B7C4A9-BDCC-4C79-ABDB-E14C13679621}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.IServices", "Altkom.Orange.IServices\Altkom.Orange.IServices.csproj", "{8B5AE08E-FB55-486A-8162-A0255E84A721}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.IServices", "Altkom.Orange.IServices\Altkom.Orange.IServices.csproj", "{8B5AE08E-FB55-486A-8162-A0255E84A721}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.FakeServices", "Altkom.Orange.FakeServices\Altkom.Orange.FakeServices.csproj", "{BA437AD8-C6ED-407B-BD23-F3D87935F2B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.Fakers", "Altkom.Orange.Fakers\Altkom.Orange.Fakers.csproj", "{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{8B5AE08E-FB55-486A-8162-A0255E84A721}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B5AE08E-FB55-486A-8162-A0255E84A721}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B5AE08E-FB55-486A-8162-A0255E84A721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA437AD8-C6ED-407B-BD23-F3D87935F2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA437AD8-C6ED-407B-BD23-F3D87935F2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA437AD8-C6ED-407B-BD23-F3D87935F2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA437AD8-C6ED-407B-BD23-F3D87935F2B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37498A2D-CFFA-4AEA-8E34-AAAE81020CBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
