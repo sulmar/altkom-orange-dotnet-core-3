@@ -19,6 +19,7 @@ namespace Altkom.Orange.WebApi.Controllers
             this.customerService = customerService;
         }
 
+
         // GET api/customers
         //[HttpGet]
         //public IActionResult Get()
@@ -41,8 +42,10 @@ namespace Altkom.Orange.WebApi.Controllers
         }
 
         [HttpGet("{pesel:pesel}")]
-        public IActionResult Get(string pesel)
+        public IActionResult Get(string pesel, [FromServices] IMessageService messageService)    // wstrzykiwanie poprzez metode
         {
+            messageService.Send(pesel);
+
             var customer = customerService.Get(pesel);
 
             return Ok(customer);
@@ -67,6 +70,8 @@ namespace Altkom.Orange.WebApi.Controllers
 
             return Ok(customers);
         }
+
+       
 
     }
 }

@@ -41,15 +41,18 @@ namespace Altkom.Orange.WebApi
 
             // dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
 
-            services.AddControllers().AddNewtonsoftJson(options =>
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.Converters.Add(new StringEnumConverter(camelCaseText: true));  // Serializacja enum jako tekst
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // Pomijanie wartosci null
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // Zapobieganie cyklicznej serializacji
-            });
+            })
+                .AddXmlSerializerFormatters();
 
             services.AddSingleton<ICustomerService, FakeCustomerService>();
             services.AddSingleton<Faker<Customer>, CustomerFaker>();
+            services.AddSingleton<IMessageService, FakeMessageService>();
 
             services.AddSingleton<IPeselValidator, MyPeselValidator>();
         }
