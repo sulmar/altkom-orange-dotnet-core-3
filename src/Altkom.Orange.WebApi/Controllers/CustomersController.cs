@@ -26,8 +26,11 @@ namespace Altkom.Orange.WebApi.Controllers
             return Ok(customers);
         }
 
+
+        // bool IRouteConstraint.Match()
+
         // GET api/customers/{id}
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int:min(1)}")]
         public IActionResult Get(int id)
         {
             var customer = customerService.Get(id);
@@ -35,7 +38,7 @@ namespace Altkom.Orange.WebApi.Controllers
             return Ok(customer);
         }
 
-        [HttpGet("{pesel}")]
+        [HttpGet("{pesel:pesel}")]
         public IActionResult Get(string pesel)
         {
             var customer = customerService.Get(pesel);
