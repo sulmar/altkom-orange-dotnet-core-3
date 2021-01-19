@@ -9,5 +9,6 @@ namespace Altkom.Orange.IServices
         void Add(TEntity entity);
         void Update(TEntity entity);
         void Remove(int id);
+        bool Exists(int id);
     }
 }

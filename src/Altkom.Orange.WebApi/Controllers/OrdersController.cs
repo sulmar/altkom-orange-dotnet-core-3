@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Altkom.Orange.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,16 @@ namespace Altkom.Orange.WebApi.Controllers
         public IActionResult GetOrders(int customerId)
         {
             throw new NotImplementedException();
+        }
+
+        [HttpGet("{id}")]
+        public Order Get(int id)
+        {
+            throw new NotImplementedException();
+
+            Order order = null;
+
+            return order;
         }
     }
 }

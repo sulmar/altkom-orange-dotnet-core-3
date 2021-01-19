@@ -36,9 +36,12 @@ namespace Altkom.Orange.WebApi.Controllers
 
         // GET api/customers/{id}
         [HttpGet("{id:int:min(1)}", Name = "GetCustomerById")]
-        public IActionResult Get(int id)
+        public ActionResult<Customer> Get(int id)
         {
             var customer = customerService.Get(id);
+
+            if (customer == null)
+                return NotFound();
 
             return Ok(customer);
         }
@@ -109,9 +112,42 @@ namespace Altkom.Orange.WebApi.Controllers
         {
             Customer customer = customerService.Get(id);
 
+            if (customer == null)
+                return NotFound();
+
             jsonPatch.ApplyTo(customer);
 
             return NoContent();
         }
+
+        // DELETE api/customers/{id}
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (!customerService.Exists(id))
+                return NotFound();
+
+            customerService.Remove(id);
+
+            return NoContent();
+        }
+
+        // HEAD api/customers/{id}
+        [HttpHead("{id}")]
+        public IActionResult Head(int id)
+        {
+            if (!customerService.Exists(id))
+                return NotFound();
+
+            return Ok();
+        }
+
+        // POST api/customers/{action}
+        [HttpPost(nameof(Hello))]
+        public IActionResult Hello([FromBody] string message)
+        {
+            return new JsonResult(message);
+        }
+
     }
 }
