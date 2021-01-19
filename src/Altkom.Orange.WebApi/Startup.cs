@@ -55,9 +55,19 @@ namespace Altkom.Orange.WebApi
             services.AddSingleton<IMessageService, FakeMessageService>();
 
             services.AddSingleton<IPeselValidator, MyPeselValidator>();
-        }
 
-      
+            // Open API (swagger)
+            // dotnet add package NSwag.AspNetCore
+            services.AddOpenApiDocument( options =>
+            {
+                options.Title = "Orange API";
+                options.DocumentName = "Orange API by Orange";
+                options.Version = "v1";
+                options.Description = "Lorem ipsum";
+            });
+
+            // dotnet add package Swashbuckle.AspNetCore
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -65,6 +75,10 @@ namespace Altkom.Orange.WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Open API (swagger)
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
             }
 
             app.UseHttpsRedirection();
@@ -77,6 +91,8 @@ namespace Altkom.Orange.WebApi
             {
                 endpoints.MapControllers();
             });
+
+           
         }
     }
 }
