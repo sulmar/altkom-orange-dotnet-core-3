@@ -4,6 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 	<IncludeOpenApiAnalyzers>true</IncludeOpenApiAnalyzers>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<NoWarn>$(NoWarn);1591</NoWarn>
+
   </PropertyGroup>
 
   
