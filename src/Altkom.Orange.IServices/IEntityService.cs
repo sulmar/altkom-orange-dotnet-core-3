@@ -7,7 +7,7 @@ namespace Altkom.Orange.IServices
         IEnumerable<TEntity> Get();
         TEntity Get(int id);
         void Add(TEntity entity);
-        void Udpate(TEntity entity);
+        void Update(TEntity entity);
         void Remove(int id);
     }
 }

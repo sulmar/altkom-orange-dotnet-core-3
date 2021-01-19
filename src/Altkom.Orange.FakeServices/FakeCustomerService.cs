@@ -19,6 +19,10 @@ namespace Altkom.Orange.FakeServices
 
         public void Add(Customer entity)
         {
+            int lastId = customers.Max(c => c.Id);
+
+            entity.Id = ++lastId;
+            
             customers.Add(entity);
         }
 
@@ -77,7 +81,7 @@ namespace Altkom.Orange.FakeServices
                 customer.IsRemoved = true;
         }
 
-        public void Udpate(Customer entity)
+        public void Update(Customer entity)
         {
             Customer customer = Get(entity.Id);
 
