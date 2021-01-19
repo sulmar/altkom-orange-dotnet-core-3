@@ -2,8 +2,11 @@
 using Altkom.Orange.FakeServices;
 using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
+using Altkom.Orange.Models.Validators;
 using Altkom.Orange.WebApi.RouteConstraints;
 using Bogus;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,22 +36,29 @@ namespace Altkom.Orange.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Rejestracja wlasnej reguly
             services.Configure<RouteOptions>(options =>
             {
+                options.LowercaseUrls = true; // adres url małymi literami
+                options.LowercaseQueryStrings = true; // parametry małymi literami
+
+              // Rejestracja wlasnej reguly
                 options.ConstraintMap.Add("pesel", typeof(PeselRouteConstraint));
             });
 
             // dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
 
             services.AddControllers()
+                .AddFluentValidation(options =>
+                {
+                    options.RegisterValidatorsFromAssemblyContaining<CustomerValidator>();
+                })
                 .AddNewtonsoftJson(options =>
-            {
-                options.SerializerSettings.Converters.Add(new StringEnumConverter(camelCaseText: true));  // Serializacja enum jako tekst
-                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // Pomijanie wartosci null
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // Zapobieganie cyklicznej serializacji
-            })
-                .AddXmlSerializerFormatters();
+                {
+                    options.UseCamelCasing(true); // poprawka malych liter
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter(camelCaseText: true));  // Serializacja enum jako tekst
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // Pomijanie wartosci null
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // Zapobieganie cyklicznej serializacji
+                });
 
             services.AddSingleton<ICustomerService, FakeCustomerService>();
             services.AddSingleton<Faker<Customer>, CustomerFaker>();
@@ -70,6 +80,12 @@ namespace Altkom.Orange.WebApi
             // <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
             // dotnet add package Swashbuckle.AspNetCore
+
+
+            // dotnet add package FluentValidation.AspNetCore
+
+            // services.AddTransient<IValidator<Customer>, CustomerValidator>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
