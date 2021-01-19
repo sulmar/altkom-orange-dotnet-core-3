@@ -1,4 +1,4 @@
-using Altkom.Orange.Fakers;
+﻿using Altkom.Orange.Fakers;
 using Altkom.Orange.FakeServices;
 using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
@@ -65,6 +65,9 @@ namespace Altkom.Orange.WebApi
                 options.Version = "v1";
                 options.Description = "Lorem ipsum";
             });
+
+            // Generowanie dokumentacji - należy dodać do pliku projektu
+            // <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
             // dotnet add package Swashbuckle.AspNetCore
         }

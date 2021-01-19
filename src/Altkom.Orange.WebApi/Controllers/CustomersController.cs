@@ -1,6 +1,7 @@
 ﻿using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
 using Altkom.Orange.Models.SearchCriterias;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +11,11 @@ using System.Threading.Tasks;
 
 namespace Altkom.Orange.WebApi.Controllers
 {
-   // [ApiController]
+
+    /// <summary>
+    /// Klienci
+    /// </summary>
+    [ApiController]
     [Route("api/[controller]")]
     public class CustomersController : ControllerBase
     {
@@ -35,7 +40,16 @@ namespace Altkom.Orange.WebApi.Controllers
         // bool IRouteConstraint.Match()
 
         // GET api/customers/{id}
+
+
+        /// <summary>
+        /// Pobranie klienta
+        /// </summary>
+        /// <param name="id">Identyfikator</param>
+        /// <returns>Klient</returns>
         [HttpGet("{id:int:min(1)}", Name = "GetCustomerById")]
+        [ProducesResponseType(typeof(Customer), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Customer> Get(int id)
         {
             var customer = customerService.Get(id);
@@ -47,11 +61,16 @@ namespace Altkom.Orange.WebApi.Controllers
         }
 
         [HttpGet("{pesel:pesel}")]
+        [ProducesResponseType(typeof(Customer), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get(string pesel, [FromServices] IMessageService messageService)    // wstrzykiwanie poprzez metode
         {
             messageService.Send(pesel);
 
             var customer = customerService.Get(pesel);
+
+            if (customer == null)
+                return NotFound();
 
             return Ok(customer);
         }
@@ -78,6 +97,8 @@ namespace Altkom.Orange.WebApi.Controllers
 
         // POST api/customers
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesDefaultResponseType]
         public IActionResult Post([FromBody] Customer customer)
         {
             customerService.Add(customer);
@@ -92,6 +113,9 @@ namespace Altkom.Orange.WebApi.Controllers
 
         // PUT api/customers/{id}
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
         public IActionResult Put(int id, [FromBody] Customer customer)
         {
             if (id != customer.Id)
@@ -108,6 +132,9 @@ namespace Altkom.Orange.WebApi.Controllers
 
         // Content-Type: application/merge-patch+json
         [HttpPatch("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Patch(int id, [FromBody] JsonPatchDocument jsonPatch)
         {
             Customer customer = customerService.Get(id);
@@ -122,6 +149,9 @@ namespace Altkom.Orange.WebApi.Controllers
 
         // DELETE api/customers/{id}
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Delete(int id)
         {
             if (!customerService.Exists(id))
@@ -134,6 +164,9 @@ namespace Altkom.Orange.WebApi.Controllers
 
         // HEAD api/customers/{id}
         [HttpHead("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Head(int id)
         {
             if (!customerService.Exists(id))
