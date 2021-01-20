@@ -62,6 +62,7 @@ namespace Altkom.Orange.WebApi
 
             services.AddSingleton<ICustomerService, FakeCustomerService>();
             services.AddSingleton<Faker<Customer>, CustomerFaker>();
+
             services.AddSingleton<IMessageService, FakeMessageService>();
 
             services.AddSingleton<IPeselValidator, MyPeselValidator>();
