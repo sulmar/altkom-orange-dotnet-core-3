@@ -142,7 +142,9 @@ namespace Altkom.Orange.WebApi
 
             var sms = Configuration.GetSection("Sms").Get<Dictionary<string, object>>();
 
+            string connectionString = Configuration.GetConnectionString("OrangeConnection");
 
+            string googleMapsApiKey = Configuration["GoogleMapsApiKey"];
 
         }
     }
