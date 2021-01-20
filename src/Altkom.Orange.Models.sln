@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.Fakers", "Alt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.WebApi", "Altkom.Orange.WebApi\Altkom.Orange.WebApi.csproj", "{B3C2B427-5A12-40CB-B0D5-027638A42B52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.Models.Validators", "Altkom.Orange.Models.Validators\Altkom.Orange.Models.Validators.csproj", "{D4ED38F7-D4ED-4CEE-96DD-133D7012FE80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.Models.Validators", "Altkom.Orange.Models.Validators\Altkom.Orange.Models.Validators.csproj", "{D4ED38F7-D4ED-4CEE-96DD-133D7012FE80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.Api", "Altkom.Orange.Api\Altkom.Orange.Api.csproj", "{A325B7FF-ADD0-4177-BF6E-556F5E46713C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.Api", "Altkom.Orange.Api\Altkom.Orange.Api.csproj", "{A325B7FF-ADD0-4177-BF6E-556F5E46713C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.RouteToCode", "Altkom.Orange.RouteToCode\Altkom.Orange.RouteToCode.csproj", "{9BF197A0-BE06-4718-9A3F-C4D48067B62F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{A325B7FF-ADD0-4177-BF6E-556F5E46713C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A325B7FF-ADD0-4177-BF6E-556F5E46713C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A325B7FF-ADD0-4177-BF6E-556F5E46713C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BF197A0-BE06-4718-9A3F-C4D48067B62F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF197A0-BE06-4718-9A3F-C4D48067B62F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF197A0-BE06-4718-9A3F-C4D48067B62F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF197A0-BE06-4718-9A3F-C4D48067B62F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
