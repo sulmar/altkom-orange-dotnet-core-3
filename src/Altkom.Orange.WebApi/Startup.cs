@@ -87,8 +87,10 @@ namespace Altkom.Orange.WebApi
 
             // services.AddTransient<IValidator<Customer>, CustomerValidator>();
 
+            // Rejestracja opcji za pomoca IOptions
             // services.Configure<FakeCustomerServiceOptions>(Configuration.GetSection("CustomerOptions"));
 
+            // Rejestracja opcji za pomoca klasy POCO
             FakeCustomerServiceOptions customerOptions = new FakeCustomerServiceOptions();
             Configuration.GetSection("CustomerOptions").Bind(customerOptions);
             services.AddSingleton(customerOptions);
