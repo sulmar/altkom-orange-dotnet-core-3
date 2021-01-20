@@ -87,6 +87,12 @@ namespace Altkom.Orange.WebApi
 
             // services.AddTransient<IValidator<Customer>, CustomerValidator>();
 
+            // services.Configure<FakeCustomerServiceOptions>(Configuration.GetSection("CustomerOptions"));
+
+            FakeCustomerServiceOptions customerOptions = new FakeCustomerServiceOptions();
+            Configuration.GetSection("CustomerOptions").Bind(customerOptions);
+            services.AddSingleton(customerOptions);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -112,7 +118,15 @@ namespace Altkom.Orange.WebApi
                 endpoints.MapControllers();
             });
 
-           
+            string smsApi = Configuration["sms"];
+
+            string smsUri = Configuration["Sms:Url"];
+            int port = int.Parse(Configuration["Sms:Port"]);
+
+            var sms = Configuration.GetSection("Sms").Get<Dictionary<string, object>>();
+
+
+
         }
     }
 }
