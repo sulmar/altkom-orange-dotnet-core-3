@@ -25,6 +25,7 @@ namespace Altkom.Orange.WebApi
                     config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
                     config.AddJsonFile($"appsettings.{environmentName}.json", optional: true, reloadOnChange: true);
                     config.AddXmlFile("appsettings.xml", optional: true);
+                    config.AddUserSecrets<Program>();
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

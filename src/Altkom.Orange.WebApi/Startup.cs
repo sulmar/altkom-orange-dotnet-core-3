@@ -146,6 +146,9 @@ namespace Altkom.Orange.WebApi
 
             string googleMapsApiKey = Configuration["GoogleMapsApiKey"];
 
+            // user-secrets
+
+            // C:\Users\{user}\AppData\Roaming\Microsoft\UserSecrets\{guid}
         }
     }
 }
