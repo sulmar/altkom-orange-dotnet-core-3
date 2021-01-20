@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.SignalRHub", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.SignalRSenderClient", "Altkom.Orange.SignalRSenderClient\Altkom.Orange.SignalRSenderClient.csproj", "{E92BDA25-3732-46FB-BA2C-2E59D0C76F0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.SignalRReceiverClient", "Altkom.Orange.SignalRReceiverClient\Altkom.Orange.SignalRReceiverClient.csproj", "{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{E92BDA25-3732-46FB-BA2C-2E59D0C76F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E92BDA25-3732-46FB-BA2C-2E59D0C76F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E92BDA25-3732-46FB-BA2C-2E59D0C76F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
