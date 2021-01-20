@@ -19,6 +19,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -95,11 +96,25 @@ namespace Altkom.Orange.WebApi
             Configuration.GetSection("CustomerOptions").Bind(customerOptions);
             services.AddSingleton(customerOptions);
 
+            // setx ASPNETCORE_ENVIRONMENT "Staging"
+
+            // dotnet run --environment "Staging"
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            if (env.IsStaging())
+            {
+
+            }
+
+#if DEBUG
+            Trace.WriteLine("XXXX");
+#endif
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
