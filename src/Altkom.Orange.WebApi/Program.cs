@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Formatting.Compact;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,20 @@ namespace Altkom.Orange.WebApi
     {
         public static void Main(string[] args)
         {
+            // dotnet add package Serilog.AspNetCore
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()  // Sinks
+                .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(new CompactJsonFormatter(), "logs/log.json")
+                .CreateLogger();
+
+            // Enrich
+
+            // Seq https://datalust.co/seq
+
+            // dotnet add package Serilog.Sinks.Seq
+
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -30,6 +46,7 @@ namespace Altkom.Orange.WebApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+                .UseSerilog();
     }
 }

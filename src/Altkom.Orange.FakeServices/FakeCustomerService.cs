@@ -2,6 +2,7 @@
 using Altkom.Orange.Models;
 using Altkom.Orange.Models.SearchCriterias;
 using Bogus;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,10 @@ namespace Altkom.Orange.FakeServices
         //    customers = faker.Generate(options.Value.Quantity);
         //}
 
-        public FakeCustomerService(Faker<Customer> faker, FakeCustomerServiceOptions options)
+        public FakeCustomerService(Faker<Customer> faker, FakeCustomerServiceOptions options, ILogger<FakeCustomerService> logger)
         {
+            logger.LogInformation("Generating customers");
+
             customers = faker.Generate(options.Quantity);
         }
 
