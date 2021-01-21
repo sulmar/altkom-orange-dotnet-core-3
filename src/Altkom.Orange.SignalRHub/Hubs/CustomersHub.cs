@@ -18,6 +18,8 @@ namespace Altkom.Orange.SignalRHub.Hubs
         {
             // await Clients.All.SendAsync("YouHaveGotNewCustomer", customer);
 
+            // BlockingCollection
+
             await Clients.Others.SendAsync("YouHaveGotNewCustomer", customer);
         }
 

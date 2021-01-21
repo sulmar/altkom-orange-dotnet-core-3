@@ -27,6 +27,7 @@ namespace Altkom.Orange.SignalRReceiverClient
                  {
                      options.Headers["Group"] = groupName;
                  })
+                // .AddMessagePackageProtocol()
                 .Build();
 
             //HubConnection<T>
