@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.SignalRSender
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.SignalRReceiverClient", "Altkom.Orange.SignalRReceiverClient\Altkom.Orange.SignalRReceiverClient.csproj", "{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.RazorPages", "Altkom.Orange.RazorPages\Altkom.Orange.RazorPages.csproj", "{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.RazorPages", "Altkom.Orange.RazorPages\Altkom.Orange.RazorPages.csproj", "{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.GrpcService", "Altkom.Orange.GrpcService\Altkom.Orange.GrpcService.csproj", "{02DC3A3F-C3E4-4E36-88CC-5BB96FA74C88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02DC3A3F-C3E4-4E36-88CC-5BB96FA74C88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DC3A3F-C3E4-4E36-88CC-5BB96FA74C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DC3A3F-C3E4-4E36-88CC-5BB96FA74C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DC3A3F-C3E4-4E36-88CC-5BB96FA74C88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
