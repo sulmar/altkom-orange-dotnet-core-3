@@ -10,4 +10,10 @@
     <ProjectReference Include="..\Altkom.Orange.IServices\Altkom.Orange.IServices.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Pages\Customers\Edit - Copy.cshtml.cs">
+      <DependentUpon>Edit.cshtml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

@@ -38,7 +38,15 @@ namespace Altkom.Orange.RazorPages
 
             services.AddSession();
 
-            services.AddRazorPages();
+            services.AddRazorPages()
+                .AddRazorPagesOptions(options =>
+                {
+                    //options.Conventions.AuthorizePage("/Customers/Edit");
+                    //options.Conventions.AuthorizePage("/Customers/Index");
+
+                    //options.Conventions.AuthorizeFolder("/Customers");
+                    //options.Conventions.AllowAnonymousToPage("/Customers/Index");
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

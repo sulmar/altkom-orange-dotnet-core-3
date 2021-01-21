@@ -1,0 +1,32 @@
+﻿@page
+@model Altkom.Orange.RazorPages.Pages.Customers.InfoModel
+@{
+    ViewData["Title"] = "Customer";
+
+    Layout = null;
+}
+
+<form method="post">
+
+    <input type="hidden" asp-for="Customer.Id" />
+
+    <div class="form-row">
+        <label asp-for="Customer.FirstName" />
+        <input asp-for="Customer.FirstName" />
+    </div>
+
+    <div class="form-row">
+        <label asp-for="Customer.LastName" />
+        <input asp-for="Customer.LastName" />
+    </div>
+
+    <div class="form-row">
+        <label asp-for="Customer.Pesel" />
+        <input asp-for="Customer.Pesel" />
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block" onclick="window.parent.closeinfo();">Save</button>
+
+</form>
+
+
