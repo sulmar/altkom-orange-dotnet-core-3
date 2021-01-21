@@ -37,7 +37,7 @@ namespace Altkom.Orange.SignalRHub
                     await context.Response.WriteAsync("Hello SignalR Hub!");
                 });
 
-                endpoints.MapHub<CustomersHub>("/signalr/customers");
+                endpoints.MapHub<StrongTypedCustomersHub>("/signalr/customers");
             });
         }
     }

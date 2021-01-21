@@ -1,4 +1,5 @@
-﻿using Altkom.Orange.Models;
+﻿using Altkom.Orange.IServices;
+using Altkom.Orange.Models;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Threading.Tasks;
@@ -21,8 +22,20 @@ namespace Altkom.Orange.SignalRReceiverClient
                 .WithUrl(url)
                 .Build();
 
-            connection.On<Customer>("YouHaveGotNewCustomer",
+            //HubConnection<T>
+            //    connection.OnYouHaveGotNewCustomer(customer => Console.WriteLine($"Received {customer.FirstName} {customer.LastName}"));
+
+            //connection.On<Customer>("YouHaveGotNewCustomer",
+            //    customer => Console.WriteLine($"Received {customer.FirstName} {customer.LastName}"));
+
+            connection.On<Customer>(nameof(ICustomerClient.YouHaveGotNewCustomer),
                 customer => Console.WriteLine($"Received {customer.FirstName} {customer.LastName}"));
+
+            //connection.On("Pong", 
+            //    () => Console.WriteLine("Pong"));
+
+            connection.On(nameof(ICustomerClient.Pong),
+              () => Console.WriteLine("Pong"));
 
             Console.WriteLine("Connecting...");
             await connection.StartAsync();
