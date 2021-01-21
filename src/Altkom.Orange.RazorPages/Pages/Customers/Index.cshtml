@@ -1,0 +1,46 @@
+﻿@page
+@model Altkom.Orange.RazorPages.Pages.Customers.IndexModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-hover table-striped table-sm">
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Gender</th>
+            <th>PESEL</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Gender</td>
+                <td>@customer.Pesel</td>
+
+                <td>
+                    <div>
+                        <a class="btn btn-primary btn-circle" asp-page="./Edit" asp-route-id="@customer.Id">Edytuj</a>
+
+                        <a class="btn btn-primary btn-circle"  asp-page-handler="Edit" asp-route-id="@customer.Id">Edytuj</a>
+
+                        @*<form method="post" asp-page-handler="Edit" asp-route-id="@customer.Id">
+                            <button type="submit" class="btn">Edytuj 2</button>
+                        </form>*@
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

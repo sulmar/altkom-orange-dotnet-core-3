@@ -19,11 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.Api", "Altkom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.RouteToCode", "Altkom.Orange.RouteToCode\Altkom.Orange.RouteToCode.csproj", "{9BF197A0-BE06-4718-9A3F-C4D48067B62F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.SignalRHub", "Altkom.Orange.SignalRHub\Altkom.Orange.SignalRHub.csproj", "{D511D1CF-8AFC-4A1F-80AF-5C0595CC109D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.SignalRHub", "Altkom.Orange.SignalRHub\Altkom.Orange.SignalRHub.csproj", "{D511D1CF-8AFC-4A1F-80AF-5C0595CC109D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.SignalRSenderClient", "Altkom.Orange.SignalRSenderClient\Altkom.Orange.SignalRSenderClient.csproj", "{E92BDA25-3732-46FB-BA2C-2E59D0C76F0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.SignalRSenderClient", "Altkom.Orange.SignalRSenderClient\Altkom.Orange.SignalRSenderClient.csproj", "{E92BDA25-3732-46FB-BA2C-2E59D0C76F0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.SignalRReceiverClient", "Altkom.Orange.SignalRReceiverClient\Altkom.Orange.SignalRReceiverClient.csproj", "{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.SignalRReceiverClient", "Altkom.Orange.SignalRReceiverClient\Altkom.Orange.SignalRReceiverClient.csproj", "{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.RazorPages", "Altkom.Orange.RazorPages\Altkom.Orange.RazorPages.csproj", "{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35558CEF-FF35-4AB1-A688-BD1AC9F97BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
