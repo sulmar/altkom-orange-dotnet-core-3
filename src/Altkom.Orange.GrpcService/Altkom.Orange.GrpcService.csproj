@@ -13,6 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Altkom.Orange.Fakers\Altkom.Orange.Fakers.csproj" />
+    <ProjectReference Include="..\Altkom.Orange.FakeServices\Altkom.Orange.FakeServices.csproj" />
+    <ProjectReference Include="..\Altkom.Orange.IServices\Altkom.Orange.IServices.csproj" />
+    <ProjectReference Include="..\Altkom.Orange.Models\Altkom.Orange.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Protobuf Include="Protos\customers.proto" GrpcServices="Server" />
   </ItemGroup>
 

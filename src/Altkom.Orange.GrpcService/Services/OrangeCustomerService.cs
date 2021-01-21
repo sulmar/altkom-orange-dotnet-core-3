@@ -1,4 +1,6 @@
 ﻿using Altkom.Orange.GrpcService.Protos;
+using Altkom.Orange.IServices;
+using Altkom.Orange.Models;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,19 +13,28 @@ namespace Altkom.Orange.GrpcService.Services
     public class OrangeCustomerService : CustomerService.CustomerServiceBase
     {
         private readonly ILogger<OrangeCustomerService> logger;
+        private readonly ICustomerService customerService;
 
-        public OrangeCustomerService(ILogger<OrangeCustomerService> logger)
+        public OrangeCustomerService(ILogger<OrangeCustomerService> logger, ICustomerService customerService)
         {
             this.logger = logger;
+            this.customerService = customerService;
         }
 
-        public override Task<AddCustomerResponse> AddCustomer(AddCustomerRequest request, ServerCallContext context)
+        public override async Task<AddCustomerResponse> AddCustomer(AddCustomerRequest request, ServerCallContext context)
         {
             logger.LogInformation($"{request.FirstName} {request.LastName} {request.Email}");
 
-            var response = new AddCustomerResponse { IsConfirmed = true };
+            Customer customer = new Models.Customer { FirstName = request.FirstName, LastName = request.LastName };
 
-            return Task.FromResult(response);
+
+            customerService.Add(customer);
+
+            var response = new AddCustomerResponse { IsConfirmed = true, Id = customer.Id };
+
+            await Task.Delay(TimeSpan.FromSeconds(5));
+
+            return response;
         }
 
     }

@@ -24,9 +24,14 @@ namespace Altkom.Orange.FakeServices
         //    customers = faker.Generate(options.Value.Quantity);
         //}
 
-        public FakeCustomerService(Faker<Customer> faker, FakeCustomerServiceOptions options, ILogger<FakeCustomerService> logger)
+        public FakeCustomerService(Faker<Customer> faker, ILogger<FakeCustomerService> logger, FakeCustomerServiceOptions options = null)
         {
             logger.LogInformation("Generating customers");
+
+            if (options==null)
+            {
+                options = new FakeCustomerServiceOptions { Quantity = 100 };
+            }
 
             customers = faker.Generate(options.Quantity);
         }
