@@ -15,11 +15,18 @@ namespace Altkom.Orange.SignalRReceiverClient
 
             Console.WriteLine("Hello Receiver Signal-R!");
 
+            Console.Write("Type group: ");
+
+            string groupName = Console.ReadLine();
+
             const string url = "http://localhost:5000/signalr/customers";
 
             // dotnet add package Microsoft.AspNetCore.SignalR.Client
             HubConnection connection = new HubConnectionBuilder()
-                .WithUrl(url)
+                 .WithUrl(url, options =>
+                 {
+                     options.Headers["Group"] = groupName;
+                 })
                 .Build();
 
             //HubConnection<T>

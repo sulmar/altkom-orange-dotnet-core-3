@@ -1,5 +1,4 @@
-﻿using Altkom.Orange.IServices;
-using Altkom.Orange.Models;
+﻿using Altkom.Orange.Models;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
@@ -25,19 +24,6 @@ namespace Altkom.Orange.SignalRHub.Hubs
         public async Task Ping()
         {
             await Clients.Caller.SendAsync("Pong");
-        }
-    }
-
-    public class StrongTypedCustomersHub : Hub<ICustomerClient>
-    {
-        public async Task SendNewCustomer(Customer customer)
-        {
-            await Clients.Others.YouHaveGotNewCustomer(customer);
-        }
-
-        public async Task Ping()
-        {
-            await Clients.Caller.Pong();
         }
     }
 }

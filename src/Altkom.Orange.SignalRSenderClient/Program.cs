@@ -25,6 +25,7 @@ namespace Altkom.Orange.SignalRSenderClient
                 .WithAutomaticReconnect(new[] { TimeSpan.Zero, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30) })
                 .Build();
 
+
             // js
             // @microsoft/signalr
 
