@@ -7,6 +7,7 @@ using Altkom.Orange.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Altkom.Orange.RazorPages.Pages.Customers
 {
@@ -16,11 +17,17 @@ namespace Altkom.Orange.RazorPages.Pages.Customers
 
         public IEnumerable<Customer> Customers { get; set; }
 
+        [ActivatorUtilitiesConstructor]
         public IndexModel(ICustomerService customerService, IConfiguration configuration)
         {
             int quantity = int.Parse(configuration["CustomerOptions:Quantity"]);
 
             this.customerService = customerService;
+        }
+
+        public IndexModel()
+        {
+
         }
 
         public void OnGet()
