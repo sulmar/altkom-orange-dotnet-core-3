@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -105,8 +106,9 @@ namespace Altkom.Orange.WebApi
 
             services.AddSingleton<IAuthorizationService, OrangeAuthorizationService>();
 
-            services.AddAuthentication("Basic")
-                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
+            services.AddAuthentication(IISDefaults.AuthenticationScheme);
+            services.AddAuthentication("BasicAuthentication")
+                        .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
         }
 
