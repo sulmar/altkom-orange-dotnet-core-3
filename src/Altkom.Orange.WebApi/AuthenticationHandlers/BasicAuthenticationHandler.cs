@@ -58,6 +58,8 @@ namespace Altkom.Orange.WebApi.AuthenticationHandlers
             ClaimsIdentity identity = new ClaimsIdentity(Scheme.Name);
             ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
+            // TODO: 
+            // https://stackoverflow.com/questions/50937012/using-claims-transformation-with-windows-authentication
             identity.AddClaim(new Claim(ClaimTypes.Name, customer.FullName));
             identity.AddClaim(new Claim(ClaimTypes.Role, "Developer"));
             identity.AddClaim(new Claim(ClaimTypes.Role, "Trainer"));

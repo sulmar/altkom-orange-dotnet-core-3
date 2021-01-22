@@ -89,6 +89,11 @@ namespace Altkom.Orange.WebApi.Controllers
                 return Unauthorized();
             }
 
+            if (User.IsInRole("Developer"))
+            {
+
+            }
+
             var customers = customerService.Get(searchCriteria);
 
             return Ok(customers);

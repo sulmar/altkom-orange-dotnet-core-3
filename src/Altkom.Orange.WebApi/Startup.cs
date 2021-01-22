@@ -10,6 +10,7 @@ using Bogus;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -112,6 +113,8 @@ namespace Altkom.Orange.WebApi
             services.AddAuthentication("BasicAuthentication")
                         .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //        .AddCookie();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
