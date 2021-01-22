@@ -39,7 +39,6 @@ namespace Altkom.Orange.GrpcReceiverClient
                 Console.WriteLine($"{response.FirstName} {response.LastName} {response.Email}");
             }
 
-
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }
