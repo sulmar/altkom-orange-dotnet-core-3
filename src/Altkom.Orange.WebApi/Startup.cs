@@ -1,4 +1,5 @@
-﻿using Altkom.Orange.Fakers;
+﻿using Altkom.Orange.EFDbServices;
+using Altkom.Orange.Fakers;
 using Altkom.Orange.FakeServices;
 using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
@@ -17,6 +18,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Server.IISIntegration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -66,8 +68,10 @@ namespace Altkom.Orange.WebApi
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // Zapobieganie cyklicznej serializacji
                 });
 
-            services.AddSingleton<ICustomerService, FakeCustomerService>();
-            services.AddSingleton<Faker<Customer>, CustomerFaker>();
+            //services.AddSingleton<ICustomerService, FakeCustomerService>();
+            //services.AddSingleton<Faker<Customer>, CustomerFaker>();
+           
+            services.AddScoped<ICustomerService, DbCustomerService>();
 
             services.AddSingleton<IMessageService, FakeMessageService>();
 
@@ -105,7 +109,7 @@ namespace Altkom.Orange.WebApi
 
             // dotnet run --environment "Staging"
 
-            services.AddSingleton<IAuthorizationService, OrangeAuthorizationService>();
+            services.AddScoped<IAuthorizationService, OrangeAuthorizationService>();
 
 
             // TODO: jak ustawić jedna domyslna?
@@ -115,11 +119,21 @@ namespace Altkom.Orange.WebApi
 
             //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             //        .AddCookie();
+
+            string connectionString = Configuration.GetConnectionString("OrangeConnectionString");
+
+            services.AddDbContext<OrangeContext>(options => options.UseSqlServer(connectionString)
+                .EnableSensitiveDataLogging());
+
+            // services.AddDbContextPool<OrangeContext>(options => options.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, OrangeContext context)
         {
+
+            context.Database.EnsureCreated();
+
 
             if (env.IsStaging())
             {
