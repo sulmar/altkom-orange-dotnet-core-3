@@ -97,6 +97,11 @@ namespace Altkom.Orange.FakeServices
             return query.ToList();
         }
 
+        public Customer GetByUserName(string username)
+        {
+            return customers.SingleOrDefault(c => c.UserName == username);
+        }
+
         public void Remove(int id)
         {
             Customer customer = Get(id);

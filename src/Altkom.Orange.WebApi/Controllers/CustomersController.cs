@@ -1,6 +1,7 @@
 ﻿using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
 using Altkom.Orange.Models.SearchCriterias;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -11,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace Altkom.Orange.WebApi.Controllers
 {
-
     /// <summary>
     /// Klienci
     /// </summary>
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CustomersController : ControllerBase
@@ -75,10 +76,19 @@ namespace Altkom.Orange.WebApi.Controllers
             return Ok(customer);
         }
 
+        [Authorize]
         // GET api/customers?FirstName=Neil&LastName=Effertz
         [HttpGet(Name = "GetCustomerBySearchCriteria")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesDefaultResponseType]
         public IActionResult Get([FromQuery] CustomerSearchCriteria searchCriteria)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+
             var customers = customerService.Get(searchCriteria);
 
             return Ok(customers);

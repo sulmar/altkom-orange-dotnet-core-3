@@ -22,6 +22,9 @@ namespace Altkom.Orange.Fakers
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.2f));
             RuleFor(p => p.CreditAmount, f => f.Random.Decimal(1m, 1000m).OrNull(f, 0.3f));
             RuleFor(p => p.Pesel, f => f.Person.Pesel());
+
+            RuleFor(p => p.UserName, f => f.Person.UserName);
+            RuleFor(p => p.HashedPassword, f => "12345");
         }
     }
 }

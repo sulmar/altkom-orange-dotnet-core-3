@@ -9,5 +9,6 @@ namespace Altkom.Orange.IServices
     {
         Customer Get(string pesel);
         IEnumerable<Customer> Get(CustomerSearchCriteria searchCriteria);
+        Customer GetByUserName(string username);
     }
 }

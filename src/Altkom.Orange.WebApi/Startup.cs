@@ -3,10 +3,13 @@ using Altkom.Orange.FakeServices;
 using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
 using Altkom.Orange.Models.Validators;
+using Altkom.Orange.WebApi.AuthenticationHandlers;
+using Altkom.Orange.WebApi.Identity;
 using Altkom.Orange.WebApi.RouteConstraints;
 using Bogus;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -100,6 +103,11 @@ namespace Altkom.Orange.WebApi
 
             // dotnet run --environment "Staging"
 
+            services.AddSingleton<IAuthorizationService, OrangeAuthorizationService>();
+
+            services.AddAuthentication("Basic")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("Basic", null);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -128,6 +136,7 @@ namespace Altkom.Orange.WebApi
 
             app.UseRouting();
 
+            app.UseAuthentication();    // uwaga na kolejnosc!
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
