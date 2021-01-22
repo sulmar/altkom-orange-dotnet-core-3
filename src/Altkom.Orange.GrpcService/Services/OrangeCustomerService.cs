@@ -1,6 +1,7 @@
 ﻿using Altkom.Orange.GrpcService.Protos;
 using Altkom.Orange.IServices;
 using Altkom.Orange.Models;
+using Bogus;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using System;
@@ -35,6 +36,22 @@ namespace Altkom.Orange.GrpcService.Services
             await Task.Delay(TimeSpan.FromSeconds(5));
 
             return response;
+        }
+
+        public override async Task YouHaveGotNewCustomer(YouHaveGotNewCustomerRequest request, IServerStreamWriter<YouHaveGotNewCustomerResponse> responseStream, ServerCallContext context)
+        {
+           var responses = new Faker<YouHaveGotNewCustomerResponse>()
+                .RuleFor(p => p.FirstName, f => f.Person.FirstName)
+                .RuleFor(p => p.LastName, f => f.Person.LastName)
+                .RuleFor(p => p.Email, f => f.Person.Email)
+                .GenerateForever();
+
+            foreach (var response in responses)
+            {
+                await responseStream.WriteAsync(response);
+
+                await Task.Delay(TimeSpan.FromSeconds(0.01));
+            }
         }
 
     }

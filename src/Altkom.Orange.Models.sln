@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.SignalRReceiv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.RazorPages", "Altkom.Orange.RazorPages\Altkom.Orange.RazorPages.csproj", "{C73501EC-E261-43C4-8C6C-10B6EAF58D3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.GrpcService", "Altkom.Orange.GrpcService\Altkom.Orange.GrpcService.csproj", "{02DC3A3F-C3E4-4E36-88CC-5BB96FA74C88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.GrpcService", "Altkom.Orange.GrpcService\Altkom.Orange.GrpcService.csproj", "{02DC3A3F-C3E4-4E36-88CC-5BB96FA74C88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.GrpcSenderClient", "Altkom.Orange.GrpcSenderClient\Altkom.Orange.GrpcSenderClient.csproj", "{D6AF5C3E-ECEF-4F37-BB29-1FEEF14C1B5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.Orange.GrpcSenderClient", "Altkom.Orange.GrpcSenderClient\Altkom.Orange.GrpcSenderClient.csproj", "{D6AF5C3E-ECEF-4F37-BB29-1FEEF14C1B5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.GrpcReceiverClient", "Altkom.Orange.GrpcReceiverClient\Altkom.Orange.GrpcReceiverClient.csproj", "{F018250B-2C72-4F91-87BB-2D096A1A1E99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{D6AF5C3E-ECEF-4F37-BB29-1FEEF14C1B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6AF5C3E-ECEF-4F37-BB29-1FEEF14C1B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6AF5C3E-ECEF-4F37-BB29-1FEEF14C1B5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F018250B-2C72-4F91-87BB-2D096A1A1E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F018250B-2C72-4F91-87BB-2D096A1A1E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F018250B-2C72-4F91-87BB-2D096A1A1E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F018250B-2C72-4F91-87BB-2D096A1A1E99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

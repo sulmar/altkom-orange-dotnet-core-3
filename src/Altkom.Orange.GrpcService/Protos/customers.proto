@@ -6,7 +6,7 @@ package customers;
 
 service CustomerService { 
 	rpc AddCustomer (AddCustomerRequest) returns (AddCustomerResponse);
-
+	rpc YouHaveGotNewCustomer (YouHaveGotNewCustomerRequest) returns (stream YouHaveGotNewCustomerResponse);
 }
 
 message AddCustomerRequest {
@@ -20,4 +20,14 @@ message AddCustomerRequest {
 message AddCustomerResponse {
 	bool is_confirmed = 1;
 	int32 id = 2;
+}
+
+message YouHaveGotNewCustomerRequest {
+	string groupName = 1;
+}
+
+message YouHaveGotNewCustomerResponse {
+	string first_name = 1;
+	string last_name = 2;
+	string email = 3;
 }
