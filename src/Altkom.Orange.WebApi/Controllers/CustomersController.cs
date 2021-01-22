@@ -76,7 +76,7 @@ namespace Altkom.Orange.WebApi.Controllers
             return Ok(customer);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Developer, Trainer")]
         // GET api/customers?FirstName=Neil&LastName=Effertz
         [HttpGet(Name = "GetCustomerBySearchCriteria")]
         [ProducesResponseType(StatusCodes.Status200OK)]

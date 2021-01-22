@@ -59,6 +59,8 @@ namespace Altkom.Orange.WebApi.AuthenticationHandlers
             ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
             identity.AddClaim(new Claim(ClaimTypes.Name, customer.FullName));
+            identity.AddClaim(new Claim(ClaimTypes.Role, "Developer"));
+            identity.AddClaim(new Claim(ClaimTypes.Role, "Trainer"));
 
             var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
