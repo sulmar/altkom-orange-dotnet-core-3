@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.GrpcReceiverC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.EFDbServices", "Altkom.Orange.EFDbServices\Altkom.Orange.EFDbServices.csproj", "{B34C49AC-1D2F-42A7-8C70-ABB8AF80C31D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Orange.DapperDbServices", "Altkom.Orange.DapperDbServices\Altkom.Orange.DapperDbServices.csproj", "{B15F68D8-9D2C-46BC-80C0-6CCE228D5341}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{B34C49AC-1D2F-42A7-8C70-ABB8AF80C31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B34C49AC-1D2F-42A7-8C70-ABB8AF80C31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B34C49AC-1D2F-42A7-8C70-ABB8AF80C31D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B15F68D8-9D2C-46BC-80C0-6CCE228D5341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B15F68D8-9D2C-46BC-80C0-6CCE228D5341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B15F68D8-9D2C-46BC-80C0-6CCE228D5341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B15F68D8-9D2C-46BC-80C0-6CCE228D5341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
