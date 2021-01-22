@@ -106,6 +106,8 @@ namespace Altkom.Orange.WebApi
 
             services.AddSingleton<IAuthorizationService, OrangeAuthorizationService>();
 
+
+            // TODO: jak ustawić jedna domyslna?
             services.AddAuthentication(IISDefaults.AuthenticationScheme);
             services.AddAuthentication("BasicAuthentication")
                         .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
