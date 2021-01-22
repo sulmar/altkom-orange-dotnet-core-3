@@ -18,7 +18,7 @@ namespace Altkom.Orange.GrpcReceiverClient
             GrpcChannel channel = GrpcChannel.ForAddress(url);
             var client = new CustomerService.CustomerServiceClient(channel);
 
-            YouHaveGotNewCustomerRequest request = new YouHaveGotNewCustomerRequest { GroupName = "A" };
+            YouHaveGotNewCustomerRequest request = new YouHaveGotNewCustomerRequest { GroupName = "B" };
 
             var call = client.YouHaveGotNewCustomer(request);
 
@@ -36,7 +36,7 @@ namespace Altkom.Orange.GrpcReceiverClient
             // C# 8.0
             await foreach(var response in call.ResponseStream.ReadAllAsync())
             {
-                Console.WriteLine($"{response.FirstName} {response.LastName} {response.Email}");
+                Console.WriteLine($"{response.FirstName} {response.LastName} {response.Email} {response.GroupName}");
             }
 
             Console.WriteLine("Press any key to exit.");

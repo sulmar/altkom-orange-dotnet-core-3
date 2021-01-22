@@ -40,13 +40,14 @@ namespace Altkom.Orange.GrpcService.Services
 
         public override async Task YouHaveGotNewCustomer(YouHaveGotNewCustomerRequest request, IServerStreamWriter<YouHaveGotNewCustomerResponse> responseStream, ServerCallContext context)
         {
-           var responses = new Faker<YouHaveGotNewCustomerResponse>()
-                .RuleFor(p => p.FirstName, f => f.Person.FirstName)
-                .RuleFor(p => p.LastName, f => f.Person.LastName)
-                .RuleFor(p => p.Email, f => f.Person.Email)
+            var responses = new Faker<YouHaveGotNewCustomerResponse>()
+                 .RuleFor(p => p.FirstName, f => f.Person.FirstName)
+                 .RuleFor(p => p.LastName, f => f.Person.LastName)
+                 .RuleFor(p => p.Email, f => f.Person.Email)
+                 .RuleFor(p => p.GroupName, f => f.PickRandom(new string[] { "A", "B", "C" }))
                 .GenerateForever();
 
-            foreach (var response in responses)
+            foreach (var response in responses.Where(r=>r.GroupName == request.GroupName))
             {
                 await responseStream.WriteAsync(response);
 
